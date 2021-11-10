@@ -16,7 +16,7 @@ export class MovieService implements Crud<Movie, DeleteResponse, GetMovieFilter>
   constructor(private http: HttpClient) {
   }
 
-  get({limit = 30, page = 0}: GetMovieFilter): Observable<Movie[]> {
+  get({limit = 20, page = 0}: GetMovieFilter): Observable<Movie[]> {
     return this.http.get<Movie[]>(this.baseURL + '?limit=' + limit + '&page=' + page);
   }
 

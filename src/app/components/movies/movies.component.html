@@ -25,7 +25,9 @@
       licenseKey="non-commercial-and-evaluation">
     </hot-table>
   </div>
-  <ng-container>
-    <button class="next-prev" (click)="pageChanged(-1)">Previous</button>
-    <button class="next-prev" (click)="pageChanged(1)">Next</button>
-  </ng-container>
+ <div class="row">
+   <div class="col-12">
+     <button class="next-prev float-end" (click)="pageChanged(1)">Next</button>
+     <button class="next-prev float-end" (click)="pageChanged(-1)">Previous</button>
+   </div>
+ </div>
