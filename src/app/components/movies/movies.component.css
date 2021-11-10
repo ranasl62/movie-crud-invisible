@@ -1,0 +1,37 @@
+.hot-table {
+  margin: 10px;
+  justify-content: center;
+}
+
+.next-prev {
+  border-radius: 4px;
+  padding: 4px;
+  margin-left: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.header {
+  text-align: center;
+  max-height: fit-content;
+}
+
+.clear {
+  clear: both;
+}
+.add-movie{
+  display: inline-block;
+  padding: 8px 48px;
+  margin:10px 0;
+  color: black;
+  font-weight: bold;
+  background: #5ece86;
+  border: 1px solid #332f2f;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.display-inline-block{
+ display: inline-block;
+}

@@ -1,0 +1,31 @@
+<app-add-movie (onCloseModal)="modalClose($event)" (onAddMovie)="movieAdd($event)" *ngIf="isSaveMode"></app-add-movie>
+  <div class="header">
+    <div class="display-inline-block">
+      <h1>Movie List</h1>
+      <p>*** For delete select and press delete key on keyboard***</p>
+      <p>*** Double click a cell for update ***</p>
+    </div>
+    <button class="btn btn-primary bg-primary float-end" (click)="isSaveMode=true" *ngIf="!isSaveMode">Add Movie</button>
+  </div>
+
+  <div class="hot-table">
+    <hot-table
+      class="hot"
+      [data]="dataset"
+      [colWidths]="getHTItem('colWidths', this.colWidths)"
+      [colHeaders]="getHTItem('columnsHeaders', this.columnsHeaders)"
+      [columns]="getHTItem('columns', columns)"
+      [afterChange]="afterChange"
+      [afterColumnMove]="columnMove"
+      [afterColumnResize]="afterColumnResize"
+      [rowHeaders]="true"
+      [manualColumnMove]="true"
+      [manualColumnResize]="true"
+      [filter]="true"
+      licenseKey="non-commercial-and-evaluation">
+    </hot-table>
+  </div>
+  <ng-container>
+    <button class="next-prev" (click)="pageChanged(-1)">Previous</button>
+    <button class="next-prev" (click)="pageChanged(1)">Next</button>
+  </ng-container>
