@@ -13,13 +13,6 @@ let that: any;
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
-
-  constructor(private readonly movieService: MovieService,
-              private readonly localStorage: LocalstorageService,
-              private readonly notifierService: NotifierService,
-              private  hansonTableService: HansonTableService) {
-    that = this;
-  }
   dataset: Movie[] = [];
   colWidths = [90, 336, 289, 123, 163, 165];
   columnsHeaders = ['ID', 'Title', 'Original Title', 'Status', 'Budget', 'Popularity', 'Activity'];
@@ -41,6 +34,12 @@ export class MoviesComponent implements OnInit {
 
   currentPage = 1;
   isSaveMode = false;
+  constructor(private readonly movieService: MovieService,
+              private readonly localStorage: LocalstorageService,
+              private readonly notifierService: NotifierService,
+              private  hansonTableService: HansonTableService) {
+    that = this;
+  }
 
   ngOnInit(): void {
     this.getMovies();
@@ -78,8 +77,10 @@ export class MoviesComponent implements OnInit {
     this.movieService.create(movie as Movie).subscribe(data => {
       this.notifierService.notify('success', 'Movie created successfully!');
       this.dataset.push(data);
+      this.isSaveMode = false;
     }, error => {
       this.notifierService.notify('error', 'Movie created failed!');
+      this.isSaveMode = true;
     });
   }
 
